@@ -62,7 +62,10 @@ const Modal = (props: any) => {
     ) {
       previousData.push(newData)
       console.log('P', previousData)
-      localStorage.setItem(currentUser, JSON.stringify(previousData))
+      localStorage.setItem(
+        JSON.stringify(currentUser),
+        JSON.stringify(previousData),
+      )
     } else {
       alert('Please enter all the required fields')
     }
@@ -88,6 +91,7 @@ const Modal = (props: any) => {
       ) : (
         ''
       )}
+
       <form className="modalBodyForm" onSubmit={submitHandler}>
         <div className="modalInput occupy">
           <div>URL</div>
@@ -96,7 +100,7 @@ const Modal = (props: any) => {
             name="url"
             className="modalInputBar"
             onChange={onChangeHandler}
-            value={edit ? value.url : currentItem.url}
+            value={edit ? value.url : currentItem && currentItem.url}
           />
         </div>
         <div className="modalInput">
@@ -106,7 +110,7 @@ const Modal = (props: any) => {
             name="siteName"
             className="modalInputBar"
             onChange={onChangeHandler}
-            value={edit ? value.siteName : currentItem.siteName}
+            value={edit ? value.siteName : currentItem && currentItem.siteName}
           />
         </div>
         <div className="modalInput">
@@ -117,7 +121,7 @@ const Modal = (props: any) => {
             name="sector"
             className="modalInputBar"
             onChange={onChangeHandler}
-            value={edit ? value.sector : currentItem.sector}
+            value={edit ? value.sector : currentItem && currentItem.sector}
           />
         </div>
         <div className="modalInput">
@@ -127,7 +131,7 @@ const Modal = (props: any) => {
             name="userName"
             className="modalInputBar"
             onChange={onChangeHandler}
-            value={edit ? value.userName : currentItem.userName}
+            value={edit ? value.userName : currentItem && currentItem.userName}
           />
         </div>
         <div className="modalInput">
@@ -138,7 +142,11 @@ const Modal = (props: any) => {
             name="sitePassword"
             className="modalInputBar"
             onChange={onChangeHandler}
-            value={edit ? value.sitePassword : currentItem.sitePassword}
+            value={
+              edit
+                ? value.sitePassword
+                : currentItem && currentItem.sitePassword
+            }
           />
         </div>
         <div className="modalInput occupy">
