@@ -7,6 +7,7 @@ const HomeBody = () => {
   const [modal, setModal] = useState('')
   const [element, setElement] = useState({})
   const [Index, setIndex] = useState(0)
+  const [search, setSearch] = useState('')
 
   const data: any = [
     {
@@ -30,7 +31,10 @@ const HomeBody = () => {
     localStorage.getItem(currentUser) || '[]',
   )
 
-  console.log(previousData)
+  const filteredData = previousData.filter((ele: any) =>
+    ele.siteName.toLowerCase().includes(search.toLowerCase()),
+  )
+  console.log(filteredData)
 
   return (
     <div className="homeBodyContainer">
@@ -45,7 +49,14 @@ const HomeBody = () => {
         </div>
         <div className="headerBodyOptions">
           <div className="headerSearch">
-            <input type="text" className="searchbar" placeholder="Search" />
+            <input
+              type="text"
+              className="searchbar"
+              placeholder="Search"
+              onChange={(e: any) => {
+                setSearch(e.target.value)
+              }}
+            />
             <img
               src={require('../../assets/icons/search.png')}
               alt="search"
@@ -79,7 +90,7 @@ const HomeBody = () => {
             </div>
           ) : (
             <div className="cardContainer">
-              {previousData.map((ele: any, index: number) => {
+              {filteredData.map((ele: any, index: number) => {
                 return (
                   <div
                     key={index}
