@@ -60,12 +60,22 @@ const Modal = (props: any) => {
       newData.sitePassword !== '' &&
       newData.sector !== ''
     ) {
-      previousData.push(newData)
-      console.log('P', previousData)
-      localStorage.setItem(
-        JSON.stringify(currentUser),
-        JSON.stringify(previousData),
-      )
+      if (props.props === 'Add Site') {
+        previousData.push(newData)
+        console.log('P', previousData)
+        localStorage.setItem(
+          JSON.stringify(currentUser),
+          JSON.stringify(previousData),
+        )
+      } else if (props.props === 'Site Details') {
+        console.log('eleeee', previousData[props.element])
+        previousData[props.element] = newData
+        console.log('replace', previousData)
+        localStorage.setItem(
+          JSON.stringify(currentUser),
+          JSON.stringify(previousData),
+        )
+      }
     } else {
       alert('Please enter all the required fields')
     }
