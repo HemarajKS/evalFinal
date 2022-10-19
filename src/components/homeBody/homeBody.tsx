@@ -18,33 +18,6 @@ const HomeBody = () => {
       notes: '',
       icon: require(`../../assets/icons/LinkdIn.png`),
     },
-    {
-      siteName: 'Youtube',
-      url: 'www.linkdin.com',
-      sector: 'Social Media',
-      userName: 'ssmraok',
-      sitePassword: 'abcd123',
-      notes: '',
-      icon: require(`../../assets/icons/LinkdIn.png`),
-    },
-    {
-      siteName: 'Linkdin',
-      url: 'www.linkdin.com',
-      sector: 'Social Media',
-      userName: 'ssmraok',
-      sitePassword: 'abcd123',
-      notes: '',
-      icon: require(`../../assets/icons/LinkdIn.png`),
-    },
-    {
-      siteName: 'Youtube',
-      url: 'www.linkdin.com',
-      sector: 'Social Media',
-      userName: 'ssmraok',
-      sitePassword: 'abcd123',
-      notes: '',
-      icon: require(`../../assets/icons/LinkdIn.png`),
-    },
   ]
 
   const currentUserData = localStorage.getItem('currentUser') || ''

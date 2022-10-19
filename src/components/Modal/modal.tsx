@@ -13,8 +13,8 @@ const Modal = (props: any) => {
     notes: '',
   })
 
-  const currentUser = JSON.parse(localStorage.getItem('currentUser') || '[]')
-  console.log('current', currentUser)
+  const currentUser = localStorage.getItem('currentUser') || '[]'
+  console.log('current user', currentUser)
 
   const previousData: any = JSON.parse(
     localStorage.getItem(currentUser) || '[]',
@@ -51,7 +51,7 @@ const Modal = (props: any) => {
       notes: e.target.notes.value,
     }
 
-    console.log('new data', newData)
+    console.log('new data', value)
 
     if (
       newData.siteName !== '' &&
@@ -60,7 +60,9 @@ const Modal = (props: any) => {
       newData.sitePassword !== '' &&
       newData.sector !== ''
     ) {
-      alert('yes')
+      previousData.push(newData)
+      console.log('P', previousData)
+      localStorage.setItem(currentUser, JSON.stringify(previousData))
     } else {
       alert('Please enter all the required fields')
     }
