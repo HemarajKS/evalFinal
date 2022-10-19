@@ -20,11 +20,9 @@ const HomeBody = () => {
     },
   ]
 
-  const currentUserData = localStorage.getItem('currentUser') || ''
-
   const currentUser = JSON.stringify(localStorage.getItem('currentUser') || '')
 
-  if (localStorage.getItem(currentUserData) === null) {
+  if (localStorage.getItem(currentUser) === null) {
     localStorage.setItem(currentUser, JSON.stringify([]))
   }
 

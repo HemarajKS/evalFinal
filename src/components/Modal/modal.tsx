@@ -14,13 +14,12 @@ const Modal = (props: any) => {
   })
 
   const currentUser = localStorage.getItem('currentUser') || '[]'
-  console.log('current user', currentUser)
 
   const previousData: any = JSON.parse(
-    localStorage.getItem(currentUser) || '[]',
+    localStorage.getItem(JSON.stringify(currentUser)) || '[]',
   )
 
-  console.log('current', previousData)
+  console.log('previous', previousData)
 
   const onChangeHandler = (e: any) => {
     setValue(e.target.value)
@@ -49,6 +48,7 @@ const Modal = (props: any) => {
       userName: e.target.userName.value,
       sitePassword: e.target.sitePassword.value,
       notes: e.target.notes.value,
+      icon: '',
     }
 
     console.log('new data', value)
